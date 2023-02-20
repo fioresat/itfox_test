@@ -19,7 +19,6 @@ abstract class WeatherState {
 class InitWeatherState extends WeatherState {
   const InitWeatherState({
     super.weatherData,
-    super.city,
     super.isEmpty,
   });
 }
@@ -28,7 +27,6 @@ class InitWeatherState extends WeatherState {
 class LoadingWeatherState extends WeatherState {
   const LoadingWeatherState({
     super.weatherData,
-    super.city,
     super.isEmpty,
   });
 }
@@ -38,7 +36,6 @@ class LoadedWeatherState extends WeatherState {
   const LoadedWeatherState({
     super.color,
     required super.weatherData,
-    required super.city,
     required super.isEmpty,
   });
 }
@@ -48,7 +45,6 @@ class CantFindState extends WeatherState {
   const CantFindState({
     super.color,
     super.weatherData,
-    super.city,
     super.isEmpty,
   });
 }
@@ -58,7 +54,6 @@ class NoInternetState extends WeatherState {
   const NoInternetState({
     super.color,
     super.weatherData,
-    super.city,
     super.isEmpty,
   });
 }

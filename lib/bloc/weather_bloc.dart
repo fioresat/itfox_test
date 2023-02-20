@@ -13,7 +13,6 @@ part 'weather_state.dart';
 
 class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
   WeatherBloc() : super(const InitWeatherState()) {
-
     on<GetWeatherEvent>((event, emit) async {
       emit(const LoadingWeatherState());
       try {
@@ -23,8 +22,7 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
           emit(
             const CantFindState(),
           );
-        }
-        else if (dataDecoded == 0) {
+        } else if (dataDecoded == 0) {
           emit(
             const NoInternetState(),
           );
@@ -34,7 +32,6 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
         emit(LoadedWeatherState(
           weatherData: weatherData,
           isEmpty: false,
-          city: capitalize(city),
           color: color,
         ));
       } on SocketException catch (_) {
@@ -47,16 +44,13 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
       emit(const LoadingWeatherState());
       try {
         final position = await LocationService().getCurrentPosition();
-        final place = await LocationService().getPlace(position!);
         final dataDecoded =
-        await WeatherService().getWeatherByCoordinates(position);
-        final city = place.locality ?? '';
+            await WeatherService().getWeatherByCoordinates(position!);
         final weatherData = WeatherData.fromJson(dataDecoded);
         final color = _getBackgroundColor(weatherData.temperature.toInt());
         emit(LoadedWeatherState(
           weatherData: weatherData,
           isEmpty: false,
-          city: capitalize(city),
           color: color,
         ));
       } on Exception catch (_) {
@@ -77,9 +71,4 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
       return Colors.blue;
     }
   }
-
-
 }
-
-
-String capitalize(String s) => s[0].toUpperCase() + s.substring(1);

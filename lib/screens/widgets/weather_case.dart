@@ -29,10 +29,18 @@ class _WeatherCaseState extends State<WeatherCase> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Container(
-          margin:
-              const EdgeInsets.only(left: 20, top: 0, right: 20, bottom: 50),
-          padding:
-              const EdgeInsets.only(left: 20, top: 5, right: 5, bottom: 00),
+          margin: const EdgeInsets.only(
+            left: 20,
+            top: 0,
+            right: 20,
+            bottom: 50,
+          ),
+          padding: const EdgeInsets.only(
+            left: 20,
+            top: 5,
+            right: 5,
+            bottom: 00,
+          ),
           height: 50,
           width: 300,
           decoration: BoxDecoration(

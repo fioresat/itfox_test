@@ -1,6 +1,4 @@
-
 import 'package:geolocator/geolocator.dart';
-
 import 'fetch_helper.dart';
 
 class WeatherService {

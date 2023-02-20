@@ -3,11 +3,10 @@ import 'package:itfox_test/model/weather_data.dart';
 
 class WeatherCard extends StatelessWidget {
   final WeatherData weatherData;
-  final String city;
 
   const WeatherCard({
     Key? key,
-    required this.weatherData, required this.city,
+    required this.weatherData,
   }) : super(key: key);
 
   @override
@@ -15,28 +14,32 @@ class WeatherCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8),
       child: Center(
-        child:
-        Column(
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-            city,
-            style: const TextStyle(
-              fontSize: 32,
-              fontWeight: FontWeight.bold,
-              fontFamily: 'OpenSans',
+              weatherData.city,
+              style: const TextStyle(
+                fontSize: 32,
+                fontWeight: FontWeight.bold,
+                fontFamily: 'OpenSans',
+              ),
             ),
-          ),
             Image.network(
                 "http://openweathermap.org/img/wn/${weatherData.icon}@4x.png"),
             Text(
               '${weatherData.temperature.toInt()}°',
-              style: const TextStyle(fontSize: 64, fontWeight: FontWeight.bold),
+              style: const TextStyle(
+                fontSize: 64,
+                fontWeight: FontWeight.bold,
+              ),
             ),
             Text(
               'Feels like ${weatherData.feelsLike}°',
-              style:
-                  const TextStyle(fontSize: 16, fontWeight: FontWeight.normal),
+              style: const TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.normal,
+              ),
             ),
           ],
         ),

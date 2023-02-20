@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:geolocator/geolocator.dart';
 import 'package:itfox_test/bloc/weather_bloc.dart';
-import 'package:itfox_test/screens/widgets/search_form.dart';
 import 'package:itfox_test/screens/widgets/weather_card.dart';
 import 'package:itfox_test/screens/widgets/weather_case.dart';
 
@@ -63,7 +61,6 @@ class _WeatherScreenState extends State<WeatherScreen> {
                         weatherBloc.add(GetWeatherEvent(city: city)),
                     widget: WeatherCard(
                       weatherData: state.weatherData!,
-                      city: state.city!,
                     ),
                   ),
                 );
@@ -75,18 +72,25 @@ class _WeatherScreenState extends State<WeatherScreen> {
                   widget: const Text(
                     'Unknown place. Please try again',
                     textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                      fontSize: 36,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 );
               } else if (state is NoInternetState) {
                 return WeatherCase(
                   cityController: _cityController,
-                  onSearch: (city) =>
-                      weatherBloc.add(GetWeatherEvent(city: city)),
+                  onSearch: (city) => weatherBloc.add(
+                    GetWeatherEvent(city: city),
+                  ),
                   widget: const Text(
                     'Please, check your internet connection',
                     textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                      fontSize: 36,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 );
               } else {
