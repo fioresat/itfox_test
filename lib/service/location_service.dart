@@ -1,10 +1,9 @@
-import 'dart:convert';
-
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 
 
 class LocationService {
+
   Future<Position?> getCurrentPosition() async {
     await _checkPermissions();
     return await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.best);
@@ -13,7 +12,6 @@ class LocationService {
   Future<void> _checkPermissions() async {
     bool serviceEnabled;
     LocationPermission permission;
-
 
     serviceEnabled = await Geolocator.isLocationServiceEnabled();
     if (!serviceEnabled) {
