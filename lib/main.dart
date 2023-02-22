@@ -31,11 +31,6 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           useMaterial3: true,
           colorSchemeSeed: Colors.green,
-          inputDecorationTheme: InputDecorationTheme(
-            labelStyle: TextStyle(
-              color: Colors.green[900],
-            ),
-          ),
         ),
         debugShowCheckedModeBanner: false,
         home: BlocConsumer<AppBloc, AppState>(
