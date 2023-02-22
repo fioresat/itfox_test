@@ -27,22 +27,29 @@ class LoginView extends StatelessWidget {
         ),
         child: Column(
           children: [
-            TextField(
-              controller: emailController,
-              decoration: const InputDecoration(
-                hintText: Consts.hintEmail,
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8.0),
+              child: TextField(
+                controller: emailController,
+                decoration: const InputDecoration(
+                  hintText: Consts.hintEmail,
+                ),
+                keyboardType: TextInputType.emailAddress,
+                keyboardAppearance: Brightness.dark,
               ),
-              keyboardType: TextInputType.emailAddress,
-              keyboardAppearance: Brightness.dark,
             ),
-            TextField(
-              controller: passwordController,
-              decoration: const InputDecoration(
-                hintText: Consts.hintPassword,
+
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8.0),
+              child: TextField(
+                controller: passwordController,
+                decoration: const InputDecoration(
+                  hintText: Consts.hintPassword,
+                ),
+                keyboardAppearance: Brightness.dark,
+                obscureText: true,
+                obscuringCharacter: '◉',
               ),
-              keyboardAppearance: Brightness.dark,
-              obscureText: true,
-              obscuringCharacter: '◉',
             ),
             TextButton(
               onPressed: () {

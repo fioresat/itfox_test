@@ -27,9 +27,10 @@ class _WeatherCaseState extends State<WeatherCase> {
   Widget build(BuildContext context) {
     return Container(
       child: Padding(
-        padding: const EdgeInsets.symmetric(
-          vertical: 50,
-          horizontal: 10,
+        padding: const EdgeInsets.only(
+          top: 50,
+          bottom: 50,
+          left: 20,
         ),
         child: Column(
           children: [
@@ -48,7 +49,7 @@ class _WeatherCaseState extends State<WeatherCase> {
                 ),
                 IconButton(
                   icon: const Icon(Icons.search),
-                  color: Colors.green,
+                  color: Colors.green[900],
                   onPressed: () {
                     widget.onSearch!(widget.cityController.text);
                   },

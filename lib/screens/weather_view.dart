@@ -24,7 +24,7 @@ class WeatherView extends StatelessWidget {
         elevation: 0,
         leading: IconButton(
           icon: const Icon(Icons.exit_to_app),
-          color: Colors.green,
+          color: Colors.green[900],
           onPressed: () {
             context.read<AppBloc>().add(
               const AppEventGoToLogin(),
@@ -34,7 +34,7 @@ class WeatherView extends StatelessWidget {
         actions: [
           IconButton(
             icon: const Icon(Icons.place_outlined),
-            color: Colors.green,
+            color: Colors.green[900],
             onPressed: () {
               context.read<AppBloc>().add(
                 const AppEventLocationWeather(),
