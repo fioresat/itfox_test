@@ -13,7 +13,6 @@ class WeatherData {
   @HiveField(3)
   final String city;
 
-
   WeatherData({
     this.city = '',
     this.icon = '',

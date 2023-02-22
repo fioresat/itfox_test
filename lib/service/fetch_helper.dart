@@ -11,7 +11,6 @@ class FetchHelper {
   });
 
   Future<dynamic> getData() async {
-    print('Request...');
     final fullUrl =
         '${Consts.baseUrl}${Consts.getWeatherRequest}?$cityName&appid=${Consts.openWeatherMapKey}&units=metric';
 
@@ -19,14 +18,11 @@ class FetchHelper {
       http.Response response = await http.get(Uri.parse(fullUrl));
       if (response.statusCode == 200) {
         final body = jsonDecode(response.body);
-        print('Response:\n$body');
         return body;
       } else {
-        print(response.statusCode);
         return 1;
       }
     } on SocketException catch (_) {
-      print("NoInternetConnection");
       return 0;
     }
   }

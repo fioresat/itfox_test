@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:itfox_test/consts.dart';
 import 'package:itfox_test/model/weather_data.dart';
 
 import 'animated_size_widget.dart';
@@ -15,50 +16,46 @@ class WeatherCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8),
-      child: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              weatherData.city,
-              style: const TextStyle(
-                fontSize: 32,
-                fontWeight: FontWeight.bold,
-                fontFamily: 'OpenSans',
-              ),
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            weatherData.city,
+            style: const TextStyle(
+              fontSize: 32,
+              fontWeight: FontWeight.bold,
             ),
-            AnimatedSizeWidget(
-              duration: const Duration(milliseconds: 500),
-              child: isConnected
-                  ? AnimatedSwitcher(
-                      duration: const Duration(milliseconds: 500),
-                      child: Image.network(
-                        "http://openweathermap.org/img/wn/${weatherData.icon}@4x.png",
-                        height: 120,
-                      ),
-                    )
-                  : const SizedBox(
+          ),
+          AnimatedSizeWidget(
+            duration: Consts.duration,
+            child: isConnected
+                ? AnimatedSwitcher(
+                    duration: Consts.duration,
+                    child: Image.network(
+                      "http://openweathermap.org/img/wn/${weatherData.icon}@4x.png",
                       height: 120,
                     ),
+                  )
+                : const SizedBox(
+                    height: 120,
+                  ),
+          ),
+          Text(
+            '${weatherData.temperature.toInt()}°',
+            style: const TextStyle(
+              fontSize: 64,
+              fontWeight: FontWeight.bold,
             ),
-            Text(
-              '${weatherData.temperature.toInt()}°',
-              style: const TextStyle(
-                fontSize: 64,
-                fontWeight: FontWeight.bold,
-              ),
+          ),
+          Text(
+            'Feels like ${weatherData.feelsLike}°',
+            style: const TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.normal,
             ),
-            Text(
-              'Feels like ${weatherData.feelsLike}°',
-              style: const TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.normal,
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

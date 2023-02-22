@@ -21,6 +21,7 @@ void main() async {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
+  @override
   Widget build(BuildContext context) {
     return BlocProvider<AppBloc>(
       create: (_) => AppBloc()
@@ -62,7 +63,7 @@ class MyApp extends StatelessWidget {
                   appState.errorMessage!,
                   textAlign: TextAlign.center,
                   style: const TextStyle(
-                    fontSize: 36,
+                    fontSize: 32,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -81,7 +82,8 @@ class MyApp extends StatelessWidget {
       margin: EdgeInsets.only(
         bottom: MediaQuery.of(context).viewInsets.bottom,
       ),
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.transparent,
+      elevation: 0,
       behavior: SnackBarBehavior.floating,
       content: Text(
         message,

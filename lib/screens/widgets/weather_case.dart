@@ -26,15 +26,15 @@ class _WeatherCaseState extends State<WeatherCase> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Padding(
-        padding: const EdgeInsets.only(
-          top: 50,
-          bottom: 50,
-          left: 20,
-        ),
-        child: Column(
-          children: [
-            Row(
+      child: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(
+              left: 20,
+              top: 20,
+              bottom: 50,
+            ),
+            child: Row(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -56,12 +56,15 @@ class _WeatherCaseState extends State<WeatherCase> {
                 ),
               ],
             ),
-            const SizedBox(
-              height: 20,
-            ),
-            widget.widget,
-          ],
-        ),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: widget.widget,
+          ),
+        ],
       ),
     );
   }

@@ -143,8 +143,7 @@ class AppBloc extends Bloc<AppEvent, AppState> {
         } else {
           emit(const InitWeatherState());
         }
-      } on Exception catch (e) {
-        print(e);
+      } on Exception catch (_) {
         emit(
           const ErrorWeatherState(
             errorMessage: Consts.weatherErrorMessage,

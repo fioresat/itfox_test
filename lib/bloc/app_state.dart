@@ -28,7 +28,7 @@ class LoadingWeatherState extends AppState {
 }
 
 @immutable
-class AppStateSplashScreen extends AppState{
+class AppStateSplashScreen extends AppState {
   const AppStateSplashScreen();
 }
 

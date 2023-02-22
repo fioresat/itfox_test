@@ -7,7 +7,7 @@ class AuthModel {
     this.password,
   });
 
-  bool compare(String email, String password){
+  bool compare(String email, String password) {
     return (this.email == email && this.password == password);
   }
 }
