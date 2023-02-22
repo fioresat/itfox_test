@@ -29,7 +29,13 @@ class MyApp extends StatelessWidget {
         ),
       child: MaterialApp(
         theme: ThemeData(
-          primarySwatch: Colors.green,
+          useMaterial3: true,
+          colorSchemeSeed: Colors.green,
+          inputDecorationTheme: InputDecorationTheme(
+            labelStyle: TextStyle(
+              color: Colors.green[900],
+            ),
+          ),
         ),
         debugShowCheckedModeBanner: false,
         home: BlocConsumer<AppBloc, AppState>(
